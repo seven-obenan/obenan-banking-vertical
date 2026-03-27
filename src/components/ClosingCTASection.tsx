@@ -12,21 +12,20 @@ const counters = [
 
 export function ClosingCTASection() {
   return (
-    <section id="cta" className="py-16 md:py-24 bg-background relative overflow-hidden">
+    <section id="cta" className="py-16 md:py-24 bg-white relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-keynote" />
 
-      <div className="container mx-auto px-4 relative">
+      <div className="mx-auto px-4 md:px-6 lg:px-8 max-w-6xl relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 text-balance">
-            By year end, your branch and ATM network becomes{" "}
-            <span className="text-status-excellent">accurate, visible, governed, and AI-ready.</span>
+          <h2 className="text-[32px] md:text-[40px] lg:text-[48px] font-light leading-[120%] text-gradient-4 mb-6 text-balance">
+            By year end, your branch and ATM network becomes accurate, visible, governed, and AI-ready.
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+          <p className="text-[16px] font-light text-description max-w-2xl mx-auto mb-8">
             We'll audit your branch and ATM footprint across every major discovery platform and deliver a governance gap report within 48 hours. No commitment required.
           </p>
 
@@ -41,7 +40,7 @@ export function ClosingCTASection() {
               href="https://www.obenan.com/contact"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-10 py-5 rounded-xl bg-gradient-cta text-white font-semibold text-lg shadow-cta hover:opacity-90 transition-opacity"
+              className="inline-flex items-center justify-center gap-2 h-14 px-10 rounded-full bg-black text-white font-normal text-[16px] hover:bg-[#333] transition-colors"
             >
               Request a Free Network Audit
             </a>
@@ -49,7 +48,7 @@ export function ClosingCTASection() {
               href="https://www.obenan.com/demo"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-10 py-5 rounded-xl bg-card border border-border text-foreground font-medium text-lg hover:border-primary/30 transition-colors"
+              className="inline-flex items-center justify-center gap-2 h-14 px-10 rounded-full border border-gray-200 bg-white text-gray-blackish font-normal text-[16px] hover:bg-gray-50 transition-colors"
             >
               Schedule a Demo
             </a>
@@ -71,13 +70,13 @@ export function ClosingCTASection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 + index * 0.1, type: "spring", stiffness: 100, damping: 30 }}
-              className="bg-card border border-border rounded-2xl p-4 md:p-6 shadow-md text-center"
+              className="bg-[#fbfcff] rounded-3xl p-4 md:p-6 shadow-card text-center"
             >
-              <counter.icon className="w-6 h-6 mx-auto mb-2 text-primary" />
-              <span className="block text-2xl md:text-3xl font-bold text-primary tabular-nums">
+              <counter.icon className="w-6 h-6 mx-auto mb-2 text-[#006EEE]" />
+              <span className="block text-[24px] md:text-[32px] font-light text-gradient-4 tabular-nums">
                 <AnimatedCounter end={counter.value} duration={2} suffix={counter.suffix} />
               </span>
-              <span className="text-xs md:text-sm text-muted-foreground">{counter.label}</span>
+              <span className="text-[12px] md:text-[14px] font-light text-description">{counter.label}</span>
             </motion.div>
           ))}
         </motion.div>
@@ -91,15 +90,15 @@ export function ClosingCTASection() {
           className="mt-16 text-center"
         >
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cta to-cta/80 flex items-center justify-center">
-              <span className="text-white font-bold text-sm">O</span>
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(84deg, #E9C100 0%, #FB1B33 28.98%, #6062D4 71.84%, #00A4E3 100%)' }}>
+              <span className="text-white font-medium text-[14px]">O</span>
             </div>
-            <span className="text-lg font-semibold text-foreground">obenan</span>
+            <span className="text-[18px] font-light text-base-black">obenan</span>
           </div>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-[14px] font-light text-description">
             Banking Network Governance — Industry Intelligence Report
           </p>
-          <p className="text-xs text-muted-foreground mt-2">
+          <p className="text-[12px] font-light text-description mt-2">
             Based on audits of {bankingVerticalPack.industry.banks_audited} major Turkish banks &bull; {bankingVerticalPack.industry.total_touchpoints.toLocaleString()} touchpoints &bull; {bankingVerticalPack.reportDate}
           </p>
         </motion.div>

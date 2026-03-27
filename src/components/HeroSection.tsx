@@ -12,9 +12,9 @@ const stats = [
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-[90vh] flex flex-col items-center justify-center px-4 bg-gradient-hero overflow-hidden">
+    <section className="relative min-h-[90vh] flex flex-col items-center justify-center px-4 md:px-6 lg:px-8 bg-gradient-hero overflow-hidden">
       <div className="absolute inset-0 bg-gradient-keynote" />
-      <div className="absolute inset-0 bg-grid-pattern opacity-30" />
+      <div className="absolute inset-0 bg-grid-pattern opacity-20" />
 
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         <motion.div
@@ -22,9 +22,8 @@ export const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground leading-tight mb-6 text-balance">
-            Your customers are searching.{" "}
-            <span className="text-status-watch">Your branches are invisible.</span>
+          <h1 className="text-[36px] md:text-[48px] lg:text-[60px] font-light leading-[100%] tracking-[0px] text-gradient-4 text-balance mb-6">
+            Your customers are searching. Your branches are invisible.
           </h1>
         </motion.div>
 
@@ -32,7 +31,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12"
+          className="text-[14px] lg:text-[16px] font-light leading-[140%] text-description max-w-2xl mx-auto mb-12"
         >
           Across Turkey's banking sector, we audited {bankingVerticalPack.industry.total_touchpoints.toLocaleString()} physical touchpoints and found systemic governance gaps that no internal team had full visibility into.
         </motion.p>
@@ -45,13 +44,13 @@ export const HeroSection = () => {
         >
           <a
             href="#audit"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-cta text-white font-semibold text-lg shadow-cta hover:opacity-90 transition-opacity"
+            className="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-full bg-black text-white font-normal text-[16px] hover:bg-[#333] transition-colors"
           >
             See the Evidence
           </a>
           <a
             href="#cta"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-card border border-border text-foreground font-medium text-lg hover:border-primary/30 transition-colors"
+            className="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-full border border-gray-200 bg-white text-gray-blackish font-normal text-[16px] hover:bg-gray-50 transition-colors"
           >
             Get Your Bank's Audit
           </a>
@@ -70,12 +69,12 @@ export const HeroSection = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.8 + index * 0.1, type: "spring", stiffness: 100, damping: 30 }}
-              className="bg-card border border-border rounded-2xl p-4 md:p-6 shadow-md"
+              className="bg-[#fbfcff] rounded-3xl p-4 md:p-6 shadow-card"
             >
-              <span className="block text-2xl md:text-3xl font-bold text-primary tabular-nums">
+              <span className="block text-[24px] md:text-[32px] font-light text-gradient-4 tabular-nums">
                 <AnimatedCounter end={stat.value} duration={2} suffix={stat.suffix} />
               </span>
-              <span className="text-xs md:text-sm text-muted-foreground">{stat.label}</span>
+              <span className="text-[12px] md:text-[14px] font-light text-description">{stat.label}</span>
             </motion.div>
           ))}
         </motion.div>
@@ -92,7 +91,7 @@ export const HeroSection = () => {
           animate={{ y: [0, 12, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <ChevronDown className="w-6 h-6 text-muted-foreground" />
+          <ChevronDown className="w-6 h-6 text-description" />
         </motion.div>
       </motion.div>
     </section>

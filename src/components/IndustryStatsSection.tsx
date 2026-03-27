@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { ShieldAlert, Copy, Ghost, Tag, MessageCircleWarning } from "lucide-react";
 import { bankingVerticalPack } from "@/data/bankingVerticalPack";
 import { AnimatedCounter } from "./AnimatedCounter";
-import { Badge } from "@/components/ui/badge";
 
 const { audit, industry } = bankingVerticalPack;
 
@@ -13,8 +12,6 @@ const findings = [
     label: "Unclaimed Listings",
     description: "Where anyone can edit your business information",
     percentage: `${audit.unclaimed_percentage}%`,
-    color: "text-status-watch",
-    bgColor: "bg-status-watch/10",
   },
   {
     icon: Copy,
@@ -22,8 +19,6 @@ const findings = [
     label: "Duplicate Clusters",
     description: "Splitting customer traffic and diluting reviews",
     percentage: `${audit.duplicate_percentage}%`,
-    color: "text-status-watch",
-    bgColor: "bg-status-watch/10",
   },
   {
     icon: Ghost,
@@ -31,8 +26,6 @@ const findings = [
     label: "Shadow Listings",
     description: "Not owned by the bank but appearing under its name",
     percentage: `${audit.shadow_percentage}%`,
-    color: "text-status-watch",
-    bgColor: "bg-status-watch/10",
   },
   {
     icon: Tag,
@@ -40,43 +33,35 @@ const findings = [
     label: "Category Mismatches",
     description: "Making branches invisible for banking searches",
     percentage: `${audit.category_percentage}%`,
-    color: "text-status-watch",
-    bgColor: "bg-status-watch/10",
   },
   {
     icon: MessageCircleWarning,
-    value: Math.round(audit.avg_unanswered_rate * 10) / 10,
+    value: audit.avg_unanswered_rate,
     label: "Reviews Unanswered",
     description: `Across ${audit.reviews_scanned.toLocaleString()} customer reviews scanned`,
     percentage: `${audit.avg_unanswered_rate}%`,
-    color: "text-status-watch",
-    bgColor: "bg-status-watch/10",
     isSuffix: true,
   },
 ];
 
 export const IndustryStatsSection = () => {
   return (
-    <section id="audit" className="py-16 md:py-24 bg-background relative">
+    <section id="audit" className="py-16 md:py-24 bg-white relative">
       <div className="absolute inset-0 bg-gradient-keynote" />
-      <div className="container mx-auto px-4 relative">
+      <div className="mx-auto px-4 md:px-6 lg:px-8 max-w-6xl relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <Badge className="mb-4 bg-status-watch/10 text-status-watch border-status-watch/20">
+          <span className="inline-block rounded-full px-4 py-2 text-[14px] font-light text-status-watch bg-[#F5A424]/10 mb-4">
             Audit Evidence
-          </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            What we found across{" "}
-            <span className="text-status-watch tabular-nums">
-              {industry.total_analysed.toLocaleString()}
-            </span>{" "}
-            analyzed listings
+          </span>
+          <h2 className="text-[32px] md:text-[40px] lg:text-[48px] font-light leading-[120%] text-gradient-4 mb-4">
+            What we found across {industry.total_analysed.toLocaleString()} analyzed listings
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-[14px] lg:text-[16px] font-light leading-[140%] text-description max-w-2xl mx-auto">
             Two of Turkey's largest banks. {industry.total_branches.toLocaleString()} branches. {industry.total_atms.toLocaleString()} ATMs. {industry.total_touchpoints.toLocaleString()} total touchpoints. Here's what the maps actually show.
           </p>
         </motion.div>
@@ -89,19 +74,19 @@ export const IndustryStatsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-card border border-border rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow"
+              className="bg-[#fbfcff] rounded-3xl p-6 shadow-card hover:shadow-lg transition-shadow"
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className={`w-10 h-10 rounded-xl ${finding.bgColor} flex items-center justify-center`}>
-                  <finding.icon className={`w-5 h-5 ${finding.color}`} />
+                <div className="w-10 h-10 rounded-xl bg-[#F5A424]/10 flex items-center justify-center">
+                  <finding.icon className="w-5 h-5 text-status-watch" />
                 </div>
-                <Badge variant="outline" className={`text-xs ${finding.color} border-current/20`}>
+                <span className="rounded-full px-3 py-1 text-[12px] font-light text-status-watch bg-[#F5A424]/10">
                   {finding.percentage}
-                </Badge>
+                </span>
               </div>
 
               <div className="mb-2">
-                <span className={`text-3xl font-bold tabular-nums ${finding.color}`}>
+                <span className="text-[32px] font-light tabular-nums text-status-watch">
                   {finding.isSuffix ? (
                     <>{finding.percentage}</>
                   ) : (
@@ -110,10 +95,10 @@ export const IndustryStatsSection = () => {
                 </span>
               </div>
 
-              <h3 className="text-base font-semibold text-foreground mb-1">
+              <h3 className="text-[16px] font-normal text-base-black mb-1">
                 {finding.label}
               </h3>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-[14px] font-light text-description">
                 {finding.description}
               </p>
             </motion.div>
@@ -125,16 +110,16 @@ export const IndustryStatsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
-            className="bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20 rounded-2xl p-6 shadow-md"
+            className="bg-[#fbfcff] rounded-3xl p-6 shadow-card"
           >
-            <h3 className="text-lg font-semibold text-foreground mb-3">
+            <h3 className="text-[18px] font-normal text-base-black mb-3">
               The Pattern Is Clear
             </h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="text-[14px] font-light text-description leading-relaxed">
               This is not isolated to one bank. Every institution with a large physical network has the same structural problem: listings created by Google, edited by users, duplicated by algorithms, and never centrally governed.
             </p>
-            <div className="mt-4 pt-4 border-t border-primary/10">
-              <p className="text-xs text-muted-foreground">
+            <div className="mt-4 pt-4 border-t border-gray-100">
+              <p className="text-[12px] font-light text-description">
                 Based on audits of {industry.banks_audited} major Turkish banks with a combined {industry.total_touchpoints.toLocaleString()} physical touchpoints.
               </p>
             </div>

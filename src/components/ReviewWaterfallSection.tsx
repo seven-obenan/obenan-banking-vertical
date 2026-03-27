@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Star, MapPin, Plus, Brain, Search, Database, BarChart3 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 
 interface StreamingReview {
   id: number;
@@ -11,7 +10,6 @@ interface StreamingReview {
   city: string;
 }
 
-// Anonymized reviews from real audit data across both banks
 const reviewPool: StreamingReview[] = [
   { id: 1, stars: 1, text: "No ATM. Don't believe it. This is inside a residential complex.", category: "location", city: "Istanbul" },
   { id: 2, stars: 1, text: "There's no ATM here at all", category: "location", city: "Ankara" },
@@ -70,31 +68,31 @@ const column4 = reviewPool.filter((_, i) => i % 4 === 3);
 
 function StreamingCard({ review }: { review: StreamingReview }) {
   return (
-    <div className="bg-card border border-border rounded-lg p-4 mb-3 shadow-sm hover:shadow-md transition-shadow duration-300">
+    <div className="bg-[#fbfcff] rounded-2xl p-4 mb-3 shadow-card hover:shadow-lg transition-shadow duration-300">
       <div className="flex items-center gap-0.5 mb-2">
         {[...Array(5)].map((_, i) => (
           <Star
             key={i}
             className={`w-3.5 h-3.5 ${
               i < review.stars
-                ? review.stars <= 2 ? "fill-status-watch text-status-watch" : "fill-amber-400 text-amber-400"
-                : "fill-muted text-muted"
+                ? "fill-[#F5A424] text-[#F5A424]"
+                : "fill-gray-200 text-gray-200"
             }`}
           />
         ))}
       </div>
-      <p className="text-sm text-foreground line-clamp-3 mb-3">"{review.text}"</p>
-      <div className="flex items-center gap-1 text-xs text-muted-foreground mb-3">
+      <p className="text-[14px] font-light text-base-black line-clamp-3 mb-3">"{review.text}"</p>
+      <div className="flex items-center gap-1 text-[12px] text-description mb-3">
         <MapPin className="w-3 h-3" />
         <span>{review.city}</span>
       </div>
       <div className="flex items-center gap-2">
         <div className="relative">
-          <span className="absolute inset-0 bg-status-watch/30 rounded-full animate-pulse-ring" />
-          <span className="absolute inset-0 bg-status-watch/20 rounded-full animate-pulse-ring" style={{ animationDelay: "0.5s" }} />
-          <Badge className="relative text-xs px-2 py-0.5 bg-status-watch/10 text-status-watch border-status-watch/20 hover:bg-status-watch/15">
+          <span className="absolute inset-0 bg-[#F5A424]/30 rounded-full animate-pulse-ring" />
+          <span className="absolute inset-0 bg-[#F5A424]/20 rounded-full animate-pulse-ring" style={{ animationDelay: "0.5s" }} />
+          <span className="relative inline-flex items-center rounded-full text-[12px] px-3 py-1 bg-[#F5A424]/10 text-[#F5A424] font-light">
             Awaiting Response
-          </Badge>
+          </span>
         </div>
       </div>
     </div>
@@ -113,7 +111,7 @@ function StreamingColumn({ reviews, duration }: { reviews: StreamingReview[]; du
 }
 
 function MethodologyIcon({ type }: { type: string }) {
-  const cls = "w-4 h-4 text-primary";
+  const cls = "w-4 h-4 text-[#006EEE]";
   switch (type) {
     case "brain": return <Brain className={cls} />;
     case "search": return <Search className={cls} />;
@@ -134,26 +132,26 @@ export function ReviewWaterfallSection() {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-muted/30 overflow-hidden">
-      <div className="container mx-auto px-4">
+    <section className="py-16 md:py-24 bg-[#F9FAFB] overflow-hidden">
+      <div className="mx-auto px-4 md:px-6 lg:px-8 max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-8"
         >
-          <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
+          <span className="inline-block rounded-full px-4 py-2 text-[14px] font-light text-[#006EEE] bg-[#006EEE]/10 mb-4">
             Customer Voice
-          </Badge>
-          <p className="text-sm text-muted-foreground max-w-2xl mx-auto mb-4">
+          </span>
+          <p className="text-[14px] font-light text-description max-w-2xl mx-auto mb-4">
             These reviews show why location data governance matters.
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-[32px] md:text-[40px] font-light leading-[120%] text-base-black mb-4">
             Across two major banks,{" "}
-            <span className="text-status-watch tabular-nums">99.3%</span>{" "}
+            <span className="text-[#F5A424] tabular-nums">99.3%</span>{" "}
             of customer reviews went unanswered
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
+          <p className="text-[16px] font-light text-description max-w-2xl mx-auto mb-6">
             Every unanswered review is a public complaint your competitors can see.
           </p>
 
@@ -161,7 +159,7 @@ export function ReviewWaterfallSection() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => setShowMethodology(!showMethodology)}
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground bg-background border border-border hover:border-primary/30 px-5 py-2.5 rounded-xl transition-colors text-sm"
+            className="inline-flex items-center gap-2 text-description hover:text-base-black bg-white border border-gray-200 hover:border-gray-300 px-5 py-2.5 rounded-full transition-colors text-[14px] font-light"
           >
             <Plus className={`w-4 h-4 transition-transform duration-200 ${showMethodology ? "rotate-45" : ""}`} />
             How We Analyzed This
@@ -177,12 +175,12 @@ export function ReviewWaterfallSection() {
               transition={{ duration: 0.3 }}
               className="overflow-hidden"
             >
-              <div className="max-w-3xl mx-auto mb-10 bg-background rounded-xl border border-border p-6 shadow-lg">
+              <div className="max-w-3xl mx-auto mb-10 bg-white rounded-2xl border border-gray-100 p-6 shadow-card">
                 <div className="grid sm:grid-cols-2 gap-4">
                   {methodologyItems.map((item, idx) => (
-                    <div key={idx} className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
+                    <div key={idx} className="flex items-start gap-3 p-3 rounded-xl bg-[#F9FAFB]">
                       <div className="mt-0.5"><MethodologyIcon type={item.icon} /></div>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
+                      <p className="text-[14px] font-light text-description leading-relaxed">{item.text}</p>
                     </div>
                   ))}
                 </div>
@@ -190,17 +188,17 @@ export function ReviewWaterfallSection() {
             </motion.div>
           )}
         </AnimatePresence>
+      </div>
 
-        <div className="relative max-w-6xl mx-auto">
-          <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-muted/30 to-transparent z-10 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-muted/30 to-transparent z-10 pointer-events-none" />
-          <div className="h-[500px] md:h-[600px] overflow-hidden">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-              <StreamingColumn reviews={column1} duration={25} />
-              <StreamingColumn reviews={column2} duration={30} />
-              <StreamingColumn reviews={column3} duration={35} />
-              <StreamingColumn reviews={column4} duration={28} />
-            </div>
+      <div className="relative max-w-6xl mx-auto px-4">
+        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#F9FAFB] to-transparent z-10 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#F9FAFB] to-transparent z-10 pointer-events-none" />
+        <div className="h-[500px] md:h-[600px] overflow-hidden">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+            <StreamingColumn reviews={column1} duration={25} />
+            <StreamingColumn reviews={column2} duration={30} />
+            <StreamingColumn reviews={column3} duration={35} />
+            <StreamingColumn reviews={column4} duration={28} />
           </div>
         </div>
       </div>
