@@ -90,9 +90,7 @@ export function ClosingCTASection() {
           className="mt-16 text-center"
         >
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(84deg, #E9C100 0%, #FB1B33 28.98%, #6062D4 71.84%, #00A4E3 100%)' }}>
-              <span className="text-white font-medium text-[14px]">O</span>
-            </div>
+            <img src="/obenan-logo.svg" alt="Obenan" className="h-8 w-auto" />
             <span className="text-[18px] font-light text-base-black">obenan</span>
           </div>
           <p className="text-[14px] font-light text-description">
