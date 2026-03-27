@@ -1,0 +1,32 @@
+{
+  "run_date": "2026-02-05",
+  "source_file": "/Users/sevenerhan/Documents/ OBENAN/Sales /Yapi Kredi/dataset_crawler-google-places_2026-01-15_22-27-51-935.json",
+  "raw_records": 3901,
+  "clean_yapi_kredi_records": 3655,
+  "removed_competitor_titles": 52,
+  "removed_unidentifiable_titles": 194,
+  "unclaimed_total": 1015,
+  "unclaimed_bank_or_atm": 976,
+  "unclaimed_other_categories": 39,
+  "unclaimed_type_breakdown": {
+    "ATM": 856,
+    "BRANCH": 120
+  },
+  "unclaimed_categoryName_breakdown_top15": {
+    "ATM": 815,
+    "Banka": 141,
+    "": 7,
+    "Bankacılık ve Finans": 7,
+    "Sigorta Acentesi": 4,
+    "Yatırım Bankası": 1,
+    "Konut Sitesi": 1
+  },
+  "missing_placeId_in_unclaimed_bank_atm": 0,
+  "missing_maps_url_in_unclaimed_bank_atm": 0,
+  "outputs": {
+    "full_csv": "/Users/sevenerhan/Documents/OBENAN/Sales/Yapi Kredi/2026-02-05_YapiKredi_Unclaimed_MapsURLs/YapiKredi_Unclaimed_BankATM_MapURLs_2026-02-05.csv",
+    "lite_csv": "/Users/sevenerhan/Documents/OBENAN/Sales/Yapi Kredi/2026-02-05_YapiKredi_Unclaimed_MapsURLs/YapiKredi_Unclaimed_BankATM_MapURLs_2026-02-05_lite.csv",
+    "urls_txt": "/Users/sevenerhan/Documents/OBENAN/Sales/Yapi Kredi/2026-02-05_YapiKredi_Unclaimed_MapsURLs/YapiKredi_Unclaimed_BankATM_MapURLs_2026-02-05.txt",
+    "other_csv": "/Users/sevenerhan/Documents/OBENAN/Sales/Yapi Kredi/2026-02-05_YapiKredi_Unclaimed_MapsURLs/YapiKredi_Unclaimed_OtherCategories_2026-02-05.csv"
+  }
+}

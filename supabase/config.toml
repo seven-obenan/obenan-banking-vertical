@@ -1,0 +1,4 @@
+project_id = "iyydmdrviofaulhyoynl"
+
+[functions.send-magic-link]
+verify_jwt = false
